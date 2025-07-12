@@ -1,0 +1,25 @@
+﻿@model ResumeBuilderAnalyzer.Models.Resume
+
+<h2>Resume Preview</h2>
+
+<div class="border p-3 rounded bg-light">
+    <p><strong>Full Name:</strong> @Model.FullName</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Phone:</strong> @Model.Phone</p>
+    <p><strong>Skills:</strong> @Model.Skills</p>
+    <p><strong>Experience:</strong> @Model.Experience</p>
+    <p><strong>Education:</strong> @Model.Education</p>
+</div>
+
+<hr />
+
+<h3 class="mt-4">Upload Job Description (.txt) to Analyze Keywords</h3>
+
+<form asp-action="AnalyzeWithJD" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Select Job Description File:</label>
+        <input type="file" name="jdFile" class="form-control" accept=".txt" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Analyze Keywords</button>
+</form>
+<form asp-action="GeneratePDF" method="post"> <button type="submit" class="btn btn-outline-success mt-3">Download Resume PDF</button> </form>

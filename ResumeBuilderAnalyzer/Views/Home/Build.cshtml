@@ -1,0 +1,31 @@
+﻿@model ResumeBuilderAnalyzer.Models.Resume
+
+<h2>Build Your Resume</h2>
+
+<form asp-action="Build" method="post">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input asp-for="FullName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input asp-for="Phone" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Skills</label>
+        <textarea asp-for="Skills" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Experience</label>
+        <textarea asp-for="Experience" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Education</label>
+        <textarea asp-for="Education" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit Resume</button>
+</form>

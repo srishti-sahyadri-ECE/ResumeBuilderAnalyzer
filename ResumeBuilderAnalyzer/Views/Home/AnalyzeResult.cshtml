@@ -1,0 +1,40 @@
+﻿@{
+    var resume = ViewBag.Resume as ResumeBuilderAnalyzer.Models.Resume;
+    var matchedKeywords = ViewBag.MatchedKeywords as List<string>;
+    var matchPercentage = ViewBag.MatchPercentage;
+}
+
+<h2>Job Description Keyword Match Result</h2>
+
+<hr />
+
+<div class="mb-3">
+    <p><strong>Candidate Name:</strong> @resume.FullName</p>
+    <p><strong>Match Percentage:</strong> <span style="color: green">@matchPercentage%</span></p>
+</div>
+
+<h4>Matched Keywords:</h4>
+@if (matchedKeywords == null || matchedKeywords.Count == 0)
+{
+    <p>No keywords matched.</p>
+}
+else
+{
+    <ul>
+        @foreach (var keyword in matchedKeywords)
+        {
+            <li>@keyword</li>
+        }
+    </ul>
+}
+
+<hr />
+
+<h4>Resume Summary</h4>
+<p><strong>Email:</strong> @resume.Email</p>
+<p><strong>Phone:</strong> @resume.Phone</p>
+<p><strong>Skills:</strong> @resume.Skills</p>
+<p><strong>Experience:</strong> @resume.Experience</p>
+<p><strong>Education:</strong> @resume.Education</p>
+
+<a class="btn btn-secondary mt-3" href="@Url.Action("Build")">Back to Resume Builder</a>
